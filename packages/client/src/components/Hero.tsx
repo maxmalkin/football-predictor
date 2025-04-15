@@ -1,4 +1,4 @@
-import { Container, Typography, Button } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const Hero = () => {
 	return (
