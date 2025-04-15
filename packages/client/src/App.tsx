@@ -5,7 +5,7 @@ function App() {
 	return (
 		<div className="min-h-screen bg-primary text-gray-900 font-sans">
 			<Header />
-			<div className="flex justify-center items-center">
+			<div className="">
 				<Hero />
 			</div>
 		</div>
