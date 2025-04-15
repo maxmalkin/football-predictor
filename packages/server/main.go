@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"os"
 
 	"github.com/joho/godotenv"
 	"github.com/maxmalkin/server/internal/api"
@@ -10,14 +9,13 @@ import (
 )
 
 func main() {
+	// check that env file exists on entry
 	config.LoadEnv()
 	err := godotenv.Load()
 
 	if(err != nil) {
 		log.Fatal("No .env file found")
 	}
-
-	footballApiKey := os.Getenv("FOOTBALL_API_KEY")
 
 	router := api.SetupRouter()
 	log.Fatal(router.Run(":8080"))
