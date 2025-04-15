@@ -1,10 +1,20 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
+import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 
 const Header = () => {
 	return (
-		<AppBar position="static" className="bg-gray-900 shadow">
-			<Toolbar className="px-4">
-				<Typography variant="h6" component="div" className="text-white">
+		<AppBar
+			position="static"
+			className="!bg-primary shadow-md border-b border-muted"
+			elevation={0}
+		>
+			<Toolbar className="px-6 space-x-3">
+				<SportsSoccerIcon className="text-white !text-4xl" />
+				<Typography
+					variant="h6"
+					component="div"
+					className="text-white !font-bold !text-2xl tracking-tight"
+				>
 					Football Predictor
 				</Typography>
 			</Toolbar>
