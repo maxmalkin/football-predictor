@@ -1,22 +1,30 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/maxmalkin/server/internal/api"
 	"github.com/maxmalkin/server/internal/config"
 )
 
 func main() {
-	// check that env file exists on entry
+	// exit if env not found
 	config.LoadEnv()
-	err := godotenv.Load()
 
-	if(err != nil) {
-		log.Fatal("No .env file found")
+	port := os.Getenv("SERVER_PORT")
+	if port == "" {
+		port = "8080"
 	}
 
+	// Setup gin router
 	router := api.SetupRouter()
-	log.Fatal(router.Run(":8080"))
+
+	// Start server on given port
+	addr := fmt.Sprintf(":%s", port)
+	log.Printf("Server running on http://localhost%s\n", addr)
+	if err := router.Run(addr); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }
