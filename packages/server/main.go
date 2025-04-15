@@ -1,13 +1,15 @@
 package main
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"log"
+
+	"main/services/config"
+
+	"github.com/maxmalkin/football-predictor/packages/server/services/api"
+)
 
 func main() {
-	app := fiber.New()
-
-	app.Get("/api/hello", func(c *fiber.Ctx) error {
-		return c.SendString("Hello from Go!")
-	})
-
-	app.Listen(":8080")
+	config.LoadEnv()
+	router := api.SetupRouter()
+	log.Fatal(router.Run(":8080"))
 }
