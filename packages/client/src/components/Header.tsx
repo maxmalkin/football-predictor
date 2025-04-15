@@ -11,7 +11,7 @@ const Header = () => {
 					component="div"
 					className="text-white !font-bold !text-2xl tracking-tight"
 				>
-					Football Predictor
+					MatchMetrics
 				</Typography>
 			</Toolbar>
 		</AppBar>

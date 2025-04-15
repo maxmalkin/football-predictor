@@ -9,7 +9,7 @@ const Hero = () => {
 				</Typography>
 				<Typography variant="h6" className="text-white">
 					Get AI powered predictions for upcoming football matches and create
-					hypothetical matchups.
+					hypothetical matchups between your favorite clubs.
 				</Typography>
 			</div>
 		</div>
