@@ -85,7 +85,6 @@ func GetTeams(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"teams": teams})
 }
 
-// In your handler file
 func GetLeagues(c *gin.Context) {
   url := "https://v3.football.api-sports.io/leagues"
   req, _ := http.NewRequest("GET", url, nil)
@@ -134,4 +133,40 @@ func GetLeagues(c *gin.Context) {
 
   c.JSON(http.StatusOK, gin.H{"leagues": leagues})
 }
+
+func GetTeamSeasons(c *gin.Context) {
+	team := c.Query("team")
+	if team == "" {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "team is required query param"})
+		return
+	}
+
+	url := fmt.Sprintf("%s/teams/seasons?team=%s", baseURL, team)
+
+	req, _ := http.NewRequest("GET", url, nil)
+	req.Header.Add("x-apisports-key", os.Getenv("FOOTBALL_API_KEY"))
+	req.Header.Add("x-rapidapi-host", "v3.football.api-sports.io")
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch team seasons"})
+		return
+	}
+	defer resp.Body.Close()
+
+	body, _ := io.ReadAll(resp.Body)
+
+	type APIResponse struct {
+		Response []int `json:"response"`
+	}
+
+	var result APIResponse
+	if err := json.Unmarshal(body, &result); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to parse response"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"seasons": result.Response})
+}
+
 
