@@ -4,3 +4,6 @@ node_modules
 
 # Builds
 packages/model/target/*
+
+# Env
+.env
