@@ -10,5 +10,8 @@
 	"license": "ISC",
 	"dependencies": {
 		"concurrently": "^9.1.2"
+	},
+	"devDependencies": {
+		"lodash": "^4.17.21"
 	}
 }

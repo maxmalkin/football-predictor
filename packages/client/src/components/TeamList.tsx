@@ -147,8 +147,8 @@ export const TeamList = () => {
 						className={`bg-white bg-opacity-10 rounded-xl p-4 text-center shadow-md transition hover:bg-opacity-20`}
 					>
 						<img
-							src={team.logo}
-							alt={team.name}
+							src={team.logo || "../../public/ball_placeholder.png"}
+							// alt={team.name}
 							className="h-12 mx-auto mb-2"
 						/>
 						<p className="text-sm font-semibold text-white">{team.name}</p>
