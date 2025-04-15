@@ -10,12 +10,13 @@ async fn main() {
 
     
     let port = env::var("MODEL_PORT").unwrap_or_else(|_| "8081".into());
-    let addr = format!("127.0.0.1:{}", port).parse().unwrap();
+    let addr: std::net::SocketAddr = format!("127.0.0.1:{}", port).parse().unwrap();
+
     
     let listener = TcpListener::bind(addr).await.unwrap();
     
     dotenvy::dotenv().ok();
-    
+
     println!("Serving on http://{}", addr);
 
     serve(listener, app).await.unwrap();
