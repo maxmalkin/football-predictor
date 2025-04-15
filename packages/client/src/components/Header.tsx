@@ -3,11 +3,7 @@ import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 
 const Header = () => {
 	return (
-		<AppBar
-			position="static"
-			className="!bg-primary shadow-md border-b border-muted"
-			elevation={0}
-		>
+		<AppBar position="static" className="!bg-primary shadow-md " elevation={0}>
 			<Toolbar className="px-6 space-x-3">
 				<SportsSoccerIcon className="text-white !text-4xl" />
 				<Typography

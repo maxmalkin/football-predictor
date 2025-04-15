@@ -3,7 +3,7 @@ import Hero from "./components/Hero";
 
 function App() {
 	return (
-		<div className="min-h-screen text-gray-900 font-sans">
+		<div className="min-h-screen bg-primary text-gray-900 font-sans">
 			<Header />
 			<div className="flex justify-center items-center">
 				<Hero />
