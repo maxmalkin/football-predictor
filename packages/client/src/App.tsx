@@ -1,5 +1,4 @@
-import Header from "./components/Header";
-import Hero from "./components/Hero";
+import { Header, Hero, TeamList } from "./components";
 
 function App() {
 	return (
@@ -7,6 +6,9 @@ function App() {
 			<Header />
 			<div className="">
 				<Hero />
+				<div className="p-8">
+					<TeamList />
+				</div>
 			</div>
 		</div>
 	);

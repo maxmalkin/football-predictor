@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 
-const Hero = () => {
+export const Hero = () => {
 	return (
 		<div className="px-4 p-8 rounded-xl">
 			<div className="w-full px-4 flex flex-col">
@@ -15,5 +15,3 @@ const Hero = () => {
 		</div>
 	);
 };
-
-export default Hero;

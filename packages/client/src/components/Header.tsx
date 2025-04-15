@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Typography } from "@mui/material";
 import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 
-const Header = () => {
+export const Header = () => {
 	return (
 		<AppBar position="static" className="!bg-primary shadow-md " elevation={0}>
 			<Toolbar className="px-6 space-x-3">
@@ -17,5 +17,3 @@ const Header = () => {
 		</AppBar>
 	);
 };
-
-export default Header;

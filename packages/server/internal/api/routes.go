@@ -29,6 +29,8 @@ func SetupRouter() *gin.Engine {
 
 	// routes
 	router.POST("/fixtures", GetFixtures)
+	router.GET("/teams", GetTeams)
+	router.GET("/leagues", GetLeagues)
 
 	return router
 }
